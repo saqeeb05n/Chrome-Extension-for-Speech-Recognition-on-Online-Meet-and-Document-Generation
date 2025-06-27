@@ -2,7 +2,7 @@
 
 This Chrome extension records and transcribes audio from Google Meet meetings using advanced speech recognition models. After the meeting, it generates a downloadable document with the full transcript and can optionally summarize the conversation or provide Q&A support using NLP.
 
-![Screenshot of Extension UI](image.jpg)
+![Screenshot of Extension UI](image.png)
 
 ---
 
@@ -72,7 +72,7 @@ npm install
 node index.js
 Make sure whisper.cpp or openai-whisper and any required NLP models are installed if using local inference.
 
-📤 Usage Guide
+ Usage Guide
 Join a Google Meet.
 
 Open the extension popup.
@@ -85,7 +85,7 @@ The transcript will be processed and made downloadable.
 
 Optionally, use Summarize or Ask Questions features.
 
-**How It Works**
+## How It Works
 Audio is recorded from the active tab (Meet).
 
 Sent to the backend using MediaRecorder blob stream.
