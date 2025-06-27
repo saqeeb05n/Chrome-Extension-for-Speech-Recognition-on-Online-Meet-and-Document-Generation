@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meet Recorder</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 10px;
+      width: 300px;
+    }
+
+    h4 {
+      color: #00f6ff;
+      border-bottom: 1px solid #00f6ff33;
+      padding-bottom: 2px;
+      margin-top: 15px;
+    }
+
+    button {
+      margin: 5px 0;
+      padding: 10px 14px;
+      width: 100%;
+      font-size: 16px;
+      background-color: #1e1e1e;
+      color: #00f6ff;
+      border: 1px solid #00f6ff88;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #00f6ff22;
+      box-shadow: 0 0 8px #00f6ff;
+    }
+
+    #recording-indicator {
+      display: none;
+      color: red;
+      font-weight: bold;
+      margin-bottom: 5px;
+      animation: blink 1s steps(1, start) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    #timer {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #00ff88;
+    }
+
+    textarea, input[type="text"] {
+      width: 95%;
+      height: 100px;
+      background-color: #1e1e1e;
+      border: 1px solid #00f6ff66;
+      border-radius: 6px;
+      padding: 8px;
+      color: #e0e0e0;
+      margin: 8px 0;
+      resize: none;
+      box-shadow: 0 0 8px #00f6ff33;
+      transition: 0.3s ease;
+    }
+
+    textarea:focus, input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 12px #00f6ff;
+      border-color: #00f6ff;
+    }
+
+    #answer {
+      margin-top: 8px;
+      white-space: pre-wrap;
+      background-color: #1e1e1e;
+      border: 1px solid #00f6ff44;
+      padding: 8px;
+      border-radius: 6px;
+      box-shadow: 0 0 6px #00f6ff22;
+    }
+
+    #chat-area {
+      margin-top: 10px;
+      display: none;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="recording-indicator">● Recording...</div>
+  <div id="timer">00:00</div>
+  <button id="start-btn">Start Recording</button>
+  <button id="stop-btn" disabled>Stop Recording</button>
+
+  <h4>Transcript</h4>
+  <textarea id="transcript" readonly></textarea>
+
+  <h4>Summary</h4>
+  <textarea id="summary" readonly></textarea>
+
+  <button id="download-btn" disabled>Download Document</button>
+
+  <div id="chat-area">
+    <h4>Ask about Meeting</h4>
+    <input id="question-input" type="text" placeholder="Ask a question..." />
+    <button id="ask-btn" disabled>Ask</button>
+    <div id="answer"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
